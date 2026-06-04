@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elsara Mustopa</title>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Poppins', sans-serif;
+    }
+
+    body{
+      background:#0f0f0f;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      padding:18px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      backdrop-filter:blur(12px);
+      background:rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.1);
+      z-index:1000;
+    }
+
+    nav h2{
+      color:#ffd000;
+      font-weight:700;
+    }
+
+    nav ul{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#ffd000;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:120px 8% 50px;
+      background:
+      radial-gradient(circle at top left,#ffd00033,transparent 30%),
+      radial-gradient(circle at bottom right,#ffb30022,transparent 30%);
+    }
+
+    .hero-content{
+      max-width:700px;
+    }
+
+    .profile{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      object-fit:cover;
+      border:5px solid #ffd000;
+      box-shadow:0 0 30px #ffd00055;
+      margin-bottom:25px;
+    }
+
+    .hero h1{
+      font-size:52px;
+      margin-bottom:10px;
+    }
+
+    .hero h3{
+      color:#ffd000;
+      font-weight:500;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      color:#ccc;
+      line-height:1.8;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 35px;
+      border-radius:30px;
+      text-decoration:none;
+      background:linear-gradient(45deg,#ffd000,#ffb300);
+      color:black;
+      font-weight:600;
+      transition:0.4s;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 20px rgba(255,208,0,0.3);
+    }
+
+    /* SECTION */
+    section{
+      padding:90px 8%;
+    }
+
+    .title{
+      font-size:38px;
+      margin-bottom:40px;
+      color:#ffd000;
+      text-align:center;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      backdrop-filter:blur(10px);
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.3);
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    /* ABOUT */
+    .about p{
+      text-align:center;
+      color:#ddd;
+      line-height:1.9;
+    }
+
+    /* SKILLS */
+    .skills-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+    }
+
+    .skill{
+      text-align:center;
+      font-weight:500;
+    }
+
+    /* EDUCATION */
+    .education{
+      text-align:center;
+      line-height:2;
+    }
+
+    /* PROJECT */
+    .project-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .project{
+      text-align:center;
+    }
+
+    /* PORTFOLIO */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .gallery img{
+      width:100%;
+      border-radius:20px;
+      transition:0.4s;
+      cursor:pointer;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.05);
+      box-shadow:0 10px 25px rgba(255,208,0,0.3);
+    }
+
+    /* CONTACT */
+    .contact{
+      text-align:center;
+    }
+
+    .contact p{
+      margin:15px 0;
+      color:#ddd;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#888;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .title{
+        font-size:30px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h2>CURICULUM VITAE</h2>
+
+    <ul>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#skills">Skill</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#portfolio">Portofolio</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+
+      <img src="Pic1.jpg" class="profile">
+
+      <h1>Elsara Mustopa</h1>
+
+      <h3>Pelajar Desain Komunikasi Visual</h3>
+
+      <p>
+        “Menciptakan desain yang bukan hanya menarik,
+        tetapi juga mampu menyampaikan pesan dengan kuat dan kreatif.”
+      </p>
+
+      <a href="#" class="btn">Download CV</a>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <h2 class="title">Tentang Saya</h2>
+
+    <div class="card">
+      <p>
+        Saya adalah pelajar jurusan Desain Komunikasi Visual (DKV)
+        yang memiliki minat besar dalam dunia desain grafis,
+        ilustrasi digital, branding, editing, dan fotografi.
+        Saya senang menciptakan visual yang aesthetic,
+        modern, dan mampu memberikan kesan kuat kepada audiens.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="title">Skills</h2>
+
+    <div class="skills-container">
+
+      <div class="card skill">CorelDraw</div>
+
+      <div class="card skill">Canva</div>
+
+      <div class="card skill">Photography</div>
+
+      <div class="card skill">Typography</div>
+
+      <div class="card skill">Capcut</div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <h2 class="title">Pendidikan</h2>
+
+    <div class="card education">
+      <h3>SMKS PLUS AL FARHAN</h3>
+      <p>Kelas 11 Jurusan Desain Komunikasi Visual</p>
+      <p>2024 - Sekarang</p>
+    </div>
+  </section>
+
+  <!-- PROJECT -->
+  <section id="project">
+    <h2 class="title">Pengalaman & Project</h2>
+
+    <div class="project-container">
+
+      <div class="card project">
+        <h3>Desain Poster</h3>
+        <p>Membuat poster modern dan aesthetic untuk event sekolah.</p>
+      </div>
+
+      <div class="card project">
+        <h3>Desain Cover Buku</h3>
+        <p>Mendesain cover buku dengan konsep visual kreatif.</p>
+      </div>
+
+      <div class="card project">
+        <h3>Editing Video</h3>
+        <p>Mengedit video cinematic menggunakan transisi modern.</p>
+      </div>
+
+      <div class="card project">
+        <h3>Branding Produk</h3>
+        <p>Membuat identitas visual dan mockup branding produk.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <h2 class="title">Portofolio</h2>
+
+    <div class="gallery">
+
+      <img src="Pic2.jpg">
+
+      <img src="Pic3.png">
+
+      <img src="Pic4.jpg">
+
+      <img src="Pic5.jpg">
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="title">Kontak</h2>
+
+    <div class="card contact">
+      <p>Instagram : @sslraa</p>
+      <p>Email : mustopaelsara.com</p>
+      <p>WhatsApp : 085863510529</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 CV Portofolio Pelajar DKV
+  </footer>
+
+</body>
+</html>
